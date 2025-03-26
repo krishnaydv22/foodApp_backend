@@ -23,79 +23,108 @@ import jakarta.servlet.http.HttpServletRequest;
 @EnableWebSecurity
 public class AppConfig {
 	
+
+	
 //	@Bean
 //	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 //		
-//		http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//        .authorizeHttpRequests(auth -> auth
-//            .requestMatchers("/").permitAll()  // ✅ Explicitly allow home page
-//            .requestMatchers("/api/admin/**").hasAnyRole("RESTAURANT_OWNER", "ADMIN")
-//            .requestMatchers("/api/**").authenticated()
-//            .anyRequest().permitAll()
-//        )
-//        .addFilterBefore(new JwtTokenValidator(), BasicAuthenticationFilter.class)
-//        .csrf(csrf -> csrf.disable())
-//        .cors(cors -> cors.configurationSource(configurationSource()));
+//		http.sessionManagement( session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+//		 .authorizeHttpRequests( auth -> auth 
+//				 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+//				 .requestMatchers("/auth/signin", "/auth/signup").permitAll()
+//				 .requestMatchers("/api/admin/**").hasAnyRole("RESTAURANT_OWNER", "ADMIN")
+//				 .requestMatchers("/api/**").authenticated()
+//				 .anyRequest().permitAll())
+//		         .addFilterBefore(new JwtTokenValidator(), BasicAuthenticationFilter.class)
+//		          .csrf(csrf -> csrf.disable() )
+//		          .cors( cors -> cors.configurationSource(configurationSource()));
+//		 
+//		return http.build();
+//		
+//	}
+//	
+//	
+//	
+//	@Bean
+//	PasswordEncoder passwordEncoder() {
+//		return new BCryptPasswordEncoder();
+//	}
 //
-//    return http.build();
+//	private CorsConfigurationSource configurationSource() {
+//		
+//		return new CorsConfigurationSource() {
+//			
+//			@Override
+//			public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
+//				CorsConfiguration cfg = new CorsConfiguration();
+//				
+//				cfg.setAllowedOrigins(Arrays.asList(
+//						"http://localhost:3000",
+//						"https://food-land-git-main-krushna-yadavs-projects.vercel.app"));
+//				
+//				cfg.setAllowedMethods(Collections.singletonList("*"));
+//				cfg.setAllowCredentials(true);
+//				cfg.setAllowedHeaders(Collections.singletonList("*"));
+//				cfg.setExposedHeaders(Arrays.asList("Authorization"));
+//				
+//				cfg.setMaxAge(3600L);
+//				
+//				UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//			    source.registerCorsConfiguration("/**", cfg);
+//				
+//				return cfg;
+//			}
+//		};
+//		
+//		
 //		
 //		
 //	}
 	
-	@Bean
-	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-		
-		http.sessionManagement( session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-		 .authorizeHttpRequests( auth -> auth 
-				 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-				 .requestMatchers("/auth/signin", "/auth/signup").permitAll()
-				 .requestMatchers("/api/admin/**").hasAnyRole("RESTAURANT_OWNER", "ADMIN")
-				 .requestMatchers("/api/**").authenticated()
-				 .anyRequest().permitAll())
-		         .addFilterBefore(new JwtTokenValidator(), BasicAuthenticationFilter.class)
-		          .csrf(csrf -> csrf.disable() )
-		          .cors( cors -> cors.configurationSource(configurationSource()));
-		 
-		return http.build();
-		
-	}
-	
-	
-	
-	@Bean
-	PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+	 @Bean
+	    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+	        http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+	            .authorizeHttpRequests(auth -> auth
+	                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+	                .requestMatchers("/auth/signin", "/auth/signup").permitAll()
+	                .requestMatchers("/api/admin/**").hasAnyRole("RESTAURANT_OWNER", "ADMIN")
+	                .requestMatchers("/api/**").authenticated()
+	                .anyRequest().permitAll()
+	            )
+	            .addFilterBefore(new JwtTokenValidator(), BasicAuthenticationFilter.class)
+	            .csrf(csrf -> csrf.disable())
+	            .cors(cors -> cors.configurationSource(configurationSource()))
+	            .headers(headers -> headers
+	                .frameOptions(frameOptions -> frameOptions.sameOrigin())  // ✅ Allow iframe embedding from same origin
+	                .contentTypeOptions(contentTypeOptions -> contentTypeOptions.disable())  // ✅ Disable "nosniff"
+	                  // ✅ XSS protection enabled
+	            );
 
-	private CorsConfigurationSource configurationSource() {
-		
-		return new CorsConfigurationSource() {
-			
-			@Override
-			public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
-				CorsConfiguration cfg = new CorsConfiguration();
-				
-				cfg.setAllowedOrigins(Arrays.asList(
-						"http://localhost:3000",
-						"https://food-land-git-main-krushna-yadavs-projects.vercel.app"));
-				
-				cfg.setAllowedMethods(Collections.singletonList("*"));
-				cfg.setAllowCredentials(true);
-				cfg.setAllowedHeaders(Collections.singletonList("*"));
-				cfg.setExposedHeaders(Arrays.asList("Authorization"));
-				
-				cfg.setMaxAge(3600L);
-				
-				UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-			    source.registerCorsConfiguration("/**", cfg);
-				
-				return cfg;
-			}
-		};
-		
-		
-		
-		
-	}
+	        return http.build();
+	    }
+
+	    @Bean
+	    PasswordEncoder passwordEncoder() {
+	        return new BCryptPasswordEncoder();
+	    }
+
+	    @Bean
+	    CorsConfigurationSource configurationSource() {
+	    	 CorsConfiguration cfg = new CorsConfiguration();
+	    	    cfg.setAllowedOrigins(Arrays.asList(
+	    	        "http://localhost:3000",
+	    	        "https://food-land-git-main-krushna-yadavs-projects.vercel.app"
+	    	    ));
+	    	    cfg.setAllowedMethods(Collections.singletonList("*"));
+	    	    cfg.setAllowCredentials(true);
+	    	    cfg.setAllowedHeaders(Collections.singletonList("*"));
+	    	    cfg.setExposedHeaders(Arrays.asList("Authorization"));
+	    	    cfg.setMaxAge(3600L);
+
+	    	    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+	    	    source.registerCorsConfiguration("/**", cfg); // ✅ Correctly registering configuration
+
+	    	    return (CorsConfigurationSource) source; // ✅ Correctly returning the source
+	    }
 
 }
