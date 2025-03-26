@@ -5,6 +5,7 @@ import java.util.Collections;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -14,6 +15,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -45,6 +47,7 @@ public class AppConfig {
 		
 		http.sessionManagement( session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 		 .authorizeHttpRequests( auth -> auth 
+				 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 				 .requestMatchers("/auth/signin", "/auth/signup").permitAll()
 				 .requestMatchers("/api/admin/**").hasAnyRole("RESTAURANT_OWNER", "ADMIN")
 				 .requestMatchers("/api/**").authenticated()
@@ -82,6 +85,9 @@ public class AppConfig {
 				cfg.setExposedHeaders(Arrays.asList("Authorization"));
 				
 				cfg.setMaxAge(3600L);
+				
+				UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+			    source.registerCorsConfiguration("/**", cfg);
 				
 				return cfg;
 			}
