@@ -48,6 +48,22 @@ This project demonstrates how to build a real-world, layered Spring Boot applica
 
 ---
 
+## 🔧 Usage
+## Customer:
+**Browse Restaurants:** View all available restaurants.
+**Add to Cart:** Select food items and add them to the cart.
+**Place Order:** Add delivery address and proceed to payment.
+**Order Tracking:** Track your order status.
+## Restaurant Owner:
+**Manage Menu:** Add, edit, or remove food items.
+**View Orders:** Check incoming orders and update their status.
+**Host Events:** Create and manage restaurant events.
+
+## 🛡️ Security
+**Authentication:** JWT for secure API access.
+**Encryption:** Passwords are hashed using bcrypt.
+**Data Validation:** Backend input validation using Hibernate Validator.
+
 ## Screen Shots of some API services.
 ## 1. Register User as an Owner
 <img width="1396" height="836" alt="Image" src="https://github.com/user-attachments/assets/ce491456-16d4-4de0-a279-f1fe8b3b0880" />
@@ -98,17 +114,6 @@ GET	/api/foods	Get all food items
 POST	/api/orders	Place an order
 GET	/api/orders/user	Get user's order history
 
-
-**📦 Dependencies**
-Spring Web
-
-Spring Data JPA
-
-Spring Security
-
-MySQL Connector
-
-JWT (io.jsonwebtoken)
 
 
 
