@@ -48,25 +48,9 @@ This project demonstrates how to build a real-world, layered Spring Boot applica
 
 ---
 
-## 📁 Project Structure
-
-com.main
-├── controller
-│ ├── AuthController.java
-│ ├── FoodController.java
-│ └── OrderController.java
-├── model
-│ ├── User.java
-│ ├── FoodItem.java
-│ └── Order.java
-├── service
-│ ├── UserService.java
-│ ├── FoodService.java
-│ └── OrderService.java
-├── repository
-│ ├── UserRepository.java
-│ ├── FoodItemRepository.java
-│ └── OrderRepository.java
+## Screen Shots of some API services.
+## 1. Register User as an Owner
+<img width="1396" height="836" alt="Image" src="https://github.com/user-attachments/assets/ce491456-16d4-4de0-a279-f1fe8b3b0880" />
 
 
 ---
