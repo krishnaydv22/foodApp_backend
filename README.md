@@ -106,13 +106,10 @@ After login, use the returned token as:
 
 Authorization: Bearer <token>
 
-**📬 Example Endpoints**
-Method	Endpoint	Description
-POST	/api/auth/register	Register a new user
-POST	/api/auth/login	Login user & get JWT
-GET	/api/foods	Get all food items
-POST	/api/orders	Place an order
-GET	/api/orders/user	Get user's order history
+## All API services Endpoints Docs Screen Shots from Swagger UI
+
+
+
 
 
 
