@@ -1,4 +1,4 @@
-# 🍽️ Food Ordering App - Spring Boot Backend
+# 🍽️ Food Land - Online Food Delivery Platform
 
 This is a **Food Ordering REST API** built using **Java and Spring Boot**. It provides all the core backend functionalities required for an online food delivery platform — including user registration, menu browsing, order placement, and admin-based food item management.
 
