@@ -107,6 +107,17 @@ After login, use the returned token as:
 Authorization: Bearer <token>
 
 ## All API services Endpoints Docs Screen Shots from Swagger UI
+<img width="1907" height="785" alt="Image" src="https://github.com/user-attachments/assets/54968407-eea3-497c-b531-ba7c75590eff" />
+
+<img width="1867" height="847" alt="Image" src="https://github.com/user-attachments/assets/74679ec0-0c28-4119-8bc3-f2fdd3c2082c" />
+
+<img width="1862" height="642" alt="Image" src="https://github.com/user-attachments/assets/dc021a5c-ae67-4dbb-b568-fd0be497062f" />
+
+<img width="1847" height="755" alt="Image" src="https://github.com/user-attachments/assets/1a07707d-db8e-423f-9a38-0bd261758a03" />
+
+<img width="1840" height="760" alt="Image" src="https://github.com/user-attachments/assets/59ab52c8-1c49-4230-a49f-94658f9b1366" />
+
+<img width="1828" height="367" alt="Image" src="https://github.com/user-attachments/assets/26bac1da-29a9-43b5-a67f-071ee7c8e736" />
 
 
 
