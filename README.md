@@ -50,19 +50,19 @@ This project demonstrates how to build a real-world, layered Spring Boot applica
 
 ## 🔧 Usage
 ## Customer:
-**Browse Restaurants:** View all available restaurants.
-**Add to Cart:** Select food items and add them to the cart.
-**Place Order:** Add delivery address and proceed to payment.
-**Order Tracking:** Track your order status.
+**Browse Restaurants:** View all available restaurants. <br>
+**Add to Cart:** Select food items and add them to the cart. <br>
+**Place Order:** Add delivery address and proceed to payment. <br>
+**Order Tracking:** Track your order status.<br>
 ## Restaurant Owner:
-**Manage Menu:** Add, edit, or remove food items.
-**View Orders:** Check incoming orders and update their status.
-**Host Events:** Create and manage restaurant events.
+**Manage Menu:** Add, edit, or remove food items. <br>
+**View Orders:** Check incoming orders and update their status. <br>
+**Host Events:** Create and manage restaurant events. <br>
 
 ## 🛡️ Security
-**Authentication:** JWT for secure API access.
-**Encryption:** Passwords are hashed using bcrypt.
-**Data Validation:** Backend input validation using Hibernate Validator.
+**Authentication:** JWT for secure API access. <br>
+**Encryption:** Passwords are hashed using bcrypt. <br>
+**Data Validation:** Backend input validation using Hibernate Validator. <br>
 
 ## Screen Shots of some API services.
 ## 1. Register User as an Owner
