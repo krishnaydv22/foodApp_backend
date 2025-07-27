@@ -52,6 +52,12 @@ This project demonstrates how to build a real-world, layered Spring Boot applica
 ## 1. Register User as an Owner
 <img width="1396" height="836" alt="Image" src="https://github.com/user-attachments/assets/ce491456-16d4-4de0-a279-f1fe8b3b0880" />
 
+## 2. Login user using Email and Password
+<img width="1367" height="713" alt="Image" src="https://github.com/user-attachments/assets/4f536332-af0a-4ac5-b460-58159994a67b" />
+
+## 3. Verify Using JWT Token
+<img width="1386" height="783" alt="Image" src="https://github.com/user-attachments/assets/0bcc4b6f-bae8-462b-91fc-e75a47d0712c" />
+
 
 ---
 
